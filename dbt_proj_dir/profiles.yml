@@ -1,0 +1,12 @@
+dbt_proj_dir: # this needs to match the name of the project that you will init later
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: xxxxxx
+      dataset: dbt_demo
+      threads: 1
+      timeout_seconds: 300
+      location: europe-west4
+      priority: interactive
