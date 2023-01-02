@@ -1,0 +1,21 @@
+steps:
+- name: gcr.io/cloud-builders/docker
+  id: Build Dataform image
+  env: 
+    - 'DOCKER_BUILDKIT=1'
+  args: [
+      'build',
+      '-t', 'europe-west4-docker.pkg.dev/${PROJECT_ID}/dataform/dataform-demo',
+      '--cache-from', 'europe-west4-docker.pkg.dev/${PROJECT_ID}/dataform/dataform-demo:latest',
+      '.'
+    ]
+
+- name: gcr.io/cloud-builders/docker
+  id: Push Dataform image to Artifact Registry
+  args: [
+      'push',
+      'europe-west4-docker.pkg.dev/${PROJECT_ID}/dataform/dataform-demo:latest'
+    ]
+
+options:
+  logging: CLOUD_LOGGING_ONLY

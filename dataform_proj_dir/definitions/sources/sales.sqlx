@@ -1,0 +1,7 @@
+
+config {
+    type: "declaration",
+    schema: "prod_raw",
+    name: "sales_data",
+    description: "Ingested sales data"
+}
